@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Architecture Coach"
+  short_description: "AI 架构教练，拆解 Agent 与 RAG 系统设计"
+  default_prompt: "Use $ai-architecture-coach to decompose or review my AI, agent, RAG, memory, or workflow system before implementation."
+
+policy:
+  allow_implicit_invocation: true

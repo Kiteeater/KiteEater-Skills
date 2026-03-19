@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Issue Log"
+  short_description: "Record important project issues, decisions, and fixes."
+  default_prompt: "Use $project-issue-log to record this project issue, code review finding, implementation adjustment, or technical decision into the project's persistent log."
+
+policy:
+  allow_implicit_invocation: true

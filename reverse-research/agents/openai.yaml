@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reverse Research"
+  short_description: "Turn vague research asks into sharp decision frameworks"
+  default_prompt: "Use $reverse-research to turn this topic into a research plan with key questions, assumptions, and next materials to inspect."

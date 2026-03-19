@@ -1,0 +1,7 @@
+interface:
+  display_name: "Mentor Explainer"
+  short_description: "Teach code clearly with mentor-style explanations."
+  default_prompt: "Use $mentor-explainer to explain this code, project, or review in plain language so I learn the why, tradeoffs, and reusable engineering principles."
+
+policy:
+  allow_implicit_invocation: true

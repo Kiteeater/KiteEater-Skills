@@ -1,4 +1,4 @@
 interface:
   display_name: "Reverse Research"
-  short_description: "Turn vague research asks into sharp decision frameworks"
-  default_prompt: "Use $reverse-research to turn this topic into a research plan with key questions, assumptions, and next materials to inspect."
+  short_description: "Turn vague research asks into assumptions, blind spots, attack surfaces, and evidence-backed decision framing"
+  default_prompt: "Use $reverse-research to turn this topic or corpus into a decision framework with hidden assumptions, unspoken insight, consensus fragility, investor stress tests, and the next materials most likely to change the judgment."

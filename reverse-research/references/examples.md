@@ -1,125 +1,137 @@
-# 使用示例
+# Examples
 
-## 示例 1: Agent Coding 工具调研
+These examples show the intended conversion: vague topic -> decision framing -> assumptions -> attack surface -> next evidence.
 
-### 用户输入
-"我想了解 Agent Coding 工具市场，目标是找到差异化机会"
+## Example 1: AI Coding Market
 
-### 素材建议
-- 落地页: Cursor、Claude Code、Codex CLI、Cline、Windsurf 各首页 + Pricing
-- 财报/访谈: GitHub Copilot 相关财报提及、Cursor 创始人访谈
-- 用户评价: Twitter/X 上开发者对这些工具的真实评价（正反）
-- 社区抱怨: Reddit r/webdev、Hacker News 相关讨论帖
+### User Ask
 
-### 生成的三层问题框架
+"帮我调研 AI coding 工具市场，看看还有没有差异化机会。"
 
-**Layer 1: 隐性知识挖掘**
-> "这些工具的宣传都在强调『AI 写代码』，但开发者的真实抱怨暴露了他们真正在乎什么？"
+### Recommended Mode
 
-追问:
-1. 为什么很多人用了一段时间 Cursor 又切回 VS Code + Copilot？
-2. 「AI 写代码」vs 「AI 辅助理解/重构代码」，用户愿意为哪个买单？
-3. 工具定价是按 seat，但价值其实按什么产生？（项目数？代码量？节省的时间？）
+`Scoping Mode`
 
-**Layer 2: 攻击面分析**
-> "这个市场的三个核心假设是什么，什么条件下会崩塌？"
+### Good Response Shape
 
-三个假设:
-1. **假设**: 开发者想要「更多自动完成的代码」
-   **证伪条件**: 如果代码质量比数量更重要，且 AI 代码需要大量 review，自动完成的价值会被重估
-   
-2. **假设**: 编辑器内集成是最佳形态
-   **证伪条件**: 如果 AI 能力在命令行/CI/PR review 场景更有价值，编辑器形态反而是限制
-   
-3. **假设**: 按开发者 seat 收费是可持续的商业模式
-   **证伪条件**: 如果 AI 代码生成变成基础设施（像编译器一样），收费模式会向 usage-based 或开源转变
+#### Decision Question
 
-**Layer 3: 压力测试**
-> "5 个世界级投资人会问的拆穿问题"
+Should we enter the AI coding market by building another general assistant, or is the better opportunity in a narrower workflow where current tools create visible failure costs?
 
-1. "为什么用户不直接用 ChatGPT + 复制粘贴，而要用你的工具？"
-2. "如果 OpenAI / Anthropic 明天在自家 Chat 界面加上代码执行，你的壁垒在哪？"
-3. "你假设的增长引擎是口碑传播，但开发者工具往往是赢者通吃，你怎么避免成为『挺好用的第二名』？"
-4. "代码安全/合规问题怎么处理？企业客户真的会放心让 AI 写生产代码吗？"
-5. "如果 AI 模型能力再提升 10 倍，你现在做的很多功能会不会变得没必要？"
+#### Known / Unknown
 
-追问链示例:
-- "第 3 个问题的最强版本是什么？"
-  - 最强版本: "开发者不会同时付费给多个同类工具，迁移成本虽低但心理账户只有一个，先发优势会被放大到极致"
-  - 哪里站不住: "如果差异化足够清晰（比如一个专注前端，一个专注后端），开发者可能同时用多个"
-  - 边界条件: "差异化必须体现在『完全不同的场景』，而非『同一个场景做得更好』"
+- Known: the market already has multiple strong assistants, editor integrations, and fast model improvement cycles.
+- Unknown: what users will consistently pay for beyond raw code generation.
 
----
+#### Core Assumptions
 
-## 示例 2: 跨境电商 SaaS 市场进入
+1. Developers want more generated code, not better control over code changes.
+2. Editor integration is the dominant wedge.
+3. Seat-based pricing remains the natural monetization model.
 
-### 用户输入
-"我们是国内电商 SaaS，想进入东南亚跨境电商市场"
+#### Unspoken Insight
 
-### 素材建议
-- 落地页: Shoplazza、Shopline、Ueeshop、BigCommerce 等跨境电商建站工具
-- 财报: Shopify 财报中对 international expansion 的讨论、SEA (Shopee) 财报
-- 用户评价: 各平台卖家论坛、Facebook 卖家群的抱怨
-- 社区抱怨: 知乎「跨境电商」话题、Reddit r/ecommerce
+The likely hidden truth is that users do not pay for "AI writes code." They pay for confidence that the tool will not create review debt, hidden breakage, or coordination overhead.
 
-### 生成的三层问题框架
+#### Consensus Attack Surface
 
-**Layer 1: 隐性知识挖掘**
-> "成功的跨境电商服务商懂但卖家不说出来的事是什么？"
+- If review burden matters more than output volume, the category may shift from generation to verification and control.
+- If the highest-value workflows happen in terminal, CI, PR review, or repo understanding, editor-first products may be overfit to the demo.
+- If model capability becomes commoditized, seat pricing may weaken and workflow ownership may matter more.
 
-追问:
-1. 为什么很多卖家宁愿用「不那么好用」的本地工具，也不用功能更强的国际工具？
-2. 「本地化」只是语言/支付吗？还有什么隐性成本？
-3. 头部卖家的真正痛点是「工具不好用」还是「流量获取」？
+#### Investor Stress Test
 
-**Layer 2: 攻击面分析**
-> "这个市场的三个核心假设是什么？"
+1. Why will users not just use a general chat model plus copy-paste?
+2. If incumbent editors ship equivalent features, what survives?
+3. Are users buying speed, trust, or organizational compliance?
+4. What workflow remains painful even if models improve another 10x?
+5. Where does the buyer live: individual developer, team lead, or platform owner?
 
-三个假设:
-1. **假设**: 跨境电商的核心是「建站 + 物流 + 支付」的基础设施
-   **证伪条件**: 如果流量获取（TikTok/Facebook 投流）才是核心，建站工具只是边缘环节
-   
-2. **假设**: 中国品牌出海需要「本土化」服务
-   **证伪条件**: 如果白牌/铺货模式仍是主流，卖家要的是效率工具而非品牌服务
-   
-3. **假设**: 市场会从「野蛮增长」走向「品牌化运营」
-   **证伪条件**: 如果平台政策持续打压铺货、流量成本持续上升，大量卖家会退出而非转型
+#### Current Read
 
-**Layer 3: 压力测试**
-> "投资人会怎么拆穿这个市场机会？"
+The opening is more likely in high-cost failure domains than in another broad "AI IDE." This is a directional read, not a proven conclusion.
 
-1. "为什么 Shopify / BigCommerce 没能在东南亚做起来？真的是因为『不了解本地』吗？"
-2. "如果 Shopee / Lazada 明天开放更多建站能力，你的差异化在哪？"
-3. "你说的『品牌化』趋势，数据支撑在哪？现在市场上品牌卖家占比多少？增长趋势如何？"
-4. "合规/税务/清关这些复杂问题，你真的能解决，还是只能『帮忙对接服务商』？"
-5. "这个市场是『先占坑就有优势』，还是『来得早不如来得巧』？"
+#### What To Inspect Next
 
----
+1. Negative reviews and churn comments from current tools
+2. PR review and CI-related complaints
+3. Pricing pages and enterprise positioning
 
-## 示例 3: 新消费品牌机会验证
+## Example 2: Cross-border SaaS Market Entry
 
-### 用户输入
-"我想做一个针对 Z 世代的低度酒品牌"
+### User Ask
 
-### 素材建议
-- 落地页: RIO、江小白、贝瑞甜心、落饮等低度酒品牌
-- 财报/访谈: 百威/保乐力加对中国低度酒市场的讨论
-- 用户评价: 小红书、抖音上的真实评价（不是官方账号）
-- 社区抱怨: 豆瓣「喝酒小组」、知乎「有什么适合女生喝的酒」话题
+"我们做电商 SaaS，想进入东南亚市场，先帮我判断值不值得。"
 
-### 生成的三层问题框架（节选）
+### Recommended Mode
 
-**Layer 1**:
-> "Z 世代买低度酒，买的是『酒』还是『社交货币』？"
+`Attack Surface Mode`
 
-**Layer 2**:
-1. 假设: 低度酒能替代啤酒成为聚会首选
-   证伪条件: 如果啤酒的价格优势和渠道渗透无法撼动，低度酒只能是小众场景
-   
-2. 假设: 口味创新是核心竞争壁垒
-   证伪条件: 如果口味容易被抄袭且消费者没有品牌忠诚度，最终变成营销战
+### Good Response Shape
 
-**Layer 3**:
-1. "为什么江小白『火了』但没有『持续火』？你如何避免重蹈覆辙？"
-2. "如果茅台/五粮液明天出一个低度系列，你的应对是什么？"
-3. "你说的『Z 世代』是谁？00 后还是 95 后？他们的饮酒场景真的一样吗？"
+#### Decision Question
+
+Is Southeast Asia attractive because it is under-served, or is it attractive-looking but structurally hard because trust, channel, and local operations matter more than product quality?
+
+#### Core Assumptions
+
+1. Local incumbents are weak enough that better software wins.
+2. Localization is mostly language, payment, and currency support.
+3. The market will reward product quality before channel or service density.
+
+#### Unspoken Insight
+
+Customers may not actually be buying "better software." They may be buying a local risk-management layer: implementation support, ecosystem trust, and known operators.
+
+#### Consensus Attack Surface
+
+- If purchase decisions are really channel-led, a better product alone does not unlock the market.
+- If service responsiveness is the hidden product, software comparisons will mislead.
+- If cross-border sellers are solving for traffic acquisition, store tooling may be secondary.
+
+#### Current Read
+
+The right first question is not "can we localize fast enough" but "what hidden trust infrastructure are buyers already outsourcing to incumbents."
+
+#### What To Inspect Next
+
+1. Seller complaints in local communities
+2. Reasons customers cite for choosing local providers
+3. Failed expansion attempts by international players
+
+## Example 3: Idea Validation With Existing Materials
+
+### User Ask
+
+"我整理了 6 个竞品页、十几条评论和一篇访谈，想知道这个 B2B agent 产品有没有机会。"
+
+### Recommended Mode
+
+`Decision Memo Mode`
+
+### Good Response Shape
+
+#### Decision Question
+
+Given the current materials, is the opportunity a real painkiller or just another automation promise in a category already crowded with shallow differentiation?
+
+#### Current Read
+
+The strongest evidence suggests buyers respond to reliability and auditability more than autonomy rhetoric. That points toward a wedge in controlled execution, not maximal autonomy.
+
+#### Evidence-backed Claims
+
+- Reviews emphasize failure recovery, approval steps, and visibility.
+- Competitor pages over-index on "fully autonomous" claims without matching proof.
+- The interview suggests enterprise buyers fear silent errors more than slow workflows.
+
+#### Still Unresolved
+
+- Whether these pains are budget-worthy for the buyer with purchasing power
+- Whether reliability is a durable wedge or just a short-term narrative gap
+
+#### What To Inspect Next
+
+1. Pricing and packaging of approval or audit features
+2. Enterprise objections in sales or community discussions
+3. Evidence of renewal or expansion tied to reliability outcomes

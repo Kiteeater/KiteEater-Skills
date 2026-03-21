@@ -1,156 +1,170 @@
 ---
 name: reverse-research
 description: |
-  把模糊的调研需求变成可执行研究框架的技能。适用于：帮我调研、拆竞品、分析赛道、
-  判断这个方向值不值得做、验证创业想法、找产品机会、梳理用户痛点、设计访谈问题、
-  做商业模式/市场进入/due diligence 研究、想知道接下来该看什么材料。
-  输出可包含：研究路径、关键问题、证伪假设、素材清单、访谈提纲、阶段性判断。
+  把模糊的调研需求变成可执行的研究框架和判断路径。适用于：拆竞品、分析市场、
+  验证创业想法、寻找产品机会、梳理用户痛点、设计访谈提纲、做商业模式或市场进入研究、
+  due diligence，以及把已有材料转成假设、证伪路径、攻击面和下一步取证顺序。
 ---
 
 # Reverse Research
 
-把“去搜一搜”升级成“先定义问题，再拆假设，再找证据”。
+## Overview
 
-## 什么时候用
+Use this skill when the user does not just need more information. They need a better way to think.
 
-- 用户想看一个市场、产品、赛道、竞品或创业想法值不值得做
-- 用户还没有足够素材，但希望先知道“该从哪拆”
-- 用户已经有一些材料，希望提炼成研究框架、访谈提纲或反证问题
-- 用户需要的不是资料堆砌，而是结构化判断路径
+The core job is to turn:
 
-## 不该用在什么时候
+- "帮我调研一下"
+- "这个方向值不值得做"
+- "帮我拆一下这个市场"
+- "我有一堆材料，不知道该怎么看"
 
-- 只是要查一个事实、最新数据或链接
-- 用户已经贴了完整内容，只需要摘要或翻译
-- 任务重点是写商业计划书成稿，而不是先研究问题本身
+into:
 
-## 默认输出模式
+1. a clear decision question
+2. the hidden assumptions inside that decision
+3. the evidence that would support or break those assumptions
+4. the fastest next materials to inspect
 
-根据上下文自动选择，不要强迫用户先做重准备。
+This skill should feel like a sharp strategy advisor, not a neutral encyclopedia. Do not default to summarizing documents. Extract the market logic, the fragile consensus, and the openings that appear when that consensus fails.
 
-### 1. Scoping Mode
+## When To Use
 
-当信息很少时，先输出：
-- 研究目标重述
-- 当前已知 / 未知
-- 3-5 个最该先验证的假设
-- 下一步最值得收集的材料
+Use this skill when the user wants to:
 
-### 2. Framework Mode
+- deconstruct a market, category, or competitor set
+- validate a startup idea, product bet, or go-to-market angle
+- identify blind spots, attack surfaces, or hidden assumptions
+- turn raw materials into decision-ready research
+- find user pain points, workaround behavior, or unspoken demand
+- design a research path before collecting a large corpus
+- run a due diligence style stress test on a business or market claim
 
-当用户已有方向但缺方法时，输出三层问题框架：
-1. 隐性知识：成功者懂但用户不直说的事
-2. 共识攻击面：这个市场默认成立的前提是什么
-3. 压力测试：怎样从投资人 / 反方视角拆穿它
+Typical triggers include:
 
-### 3. Synthesis Mode
+- "帮我调研"
+- "拆竞品"
+- "分析赛道"
+- "找机会"
+- "这个方向值不值得做"
+- "帮我看这些材料能得出什么判断"
+- "接下来还该看什么"
 
-当用户已经给了若干材料时，额外输出：
-- 当前最可信的阶段性判断
-- 哪些判断已有证据支撑
-- 哪些地方仍然只是猜测
-- 下一轮最该补的反证材料
+## Do Not Use
 
-## 工作流
+Do not use this skill for:
 
-### 第一步：确认研究对象
+- a single fact lookup, latest metric, or one-off link request
+- pure summarization or translation of content the user already provided
+- writing a finished business plan or deck without first framing the research
+- generic brainstorming that is not grounded in a decision or evidence path
 
-至少明确这四件事：
-- 研究对象：市场 / 产品 / 用户 / 商业模式 / 进入策略
-- 决策目的：为了做、投、学、写、比，还是排除方向
-- 当前假设：用户已经隐含相信什么
-- 可用材料：已有链接、截图、文案、评论、访谈、财报、帖子
+If the user wants a fast answer, stay concise, but keep the structure of assumptions, evidence, and disconfirming questions.
 
-如果四项不全，先补最关键缺口，不要把用户拦在门外。
+## Default Operating Model
 
-### 第二步：先拆假设，再列问题
+Route requests by input maturity, in this priority order:
 
-围绕以下三层生成问题，不要直接做空泛总结：
+1. `Decision Memo Mode`
+   Trigger when the user already provided a meaningful corpus and clearly wants a judgment.
+2. `Attack Surface Mode`
+   Trigger when the user has a thesis, business idea, or strong claim that needs to be stress-tested.
+3. `Corpus Decode Mode`
+   Trigger when the user supplied materials but the decision question is still fuzzy.
+4. `Scoping Mode`
+   Trigger when the user mostly has a topic and a vague goal.
 
-#### Layer 1: 隐性知识
+If more than one mode applies, higher priority wins. Detailed routing and completion criteria live in [references/modes.md](references/modes.md).
 
-找“行内人知道、外行人听不见”的东西。
+## Input Triage
 
-常见方向：
-- 用户嘴上说在乎什么，实际为哪件事付钱
-- 竞品文案承诺了什么，用户抱怨暴露了什么
-- 对手没写出来但在产品或运营里偷偷做到的能力
+Before answering, identify these four inputs:
 
-#### Layer 2: 共识攻击面
+- `Decision Object`
+  What is being studied: market, product, user segment, business model, category, or entry strategy.
+- `Decision Action`
+  What the user needs to decide: build, invest, enter, compare, avoid, reposition, or learn.
+- `Available Corpus`
+  What materials already exist: landing pages, pricing, reviews, calls, interviews, posts, decks, notes.
+- `Current Belief`
+  What the user already seems to believe is true.
 
-找这个市场赖以成立的默认前提。
+If one or more inputs are missing, infer the minimum needed to start. Do not block on complete inputs. State important assumptions explicitly when you had to fill them in.
 
-常见方向：
-- 这个行业有哪些“不言自明”的公理
-- 哪个前提一旦不成立，现有头部做法会塌
-- 用户现在忍受的限制，在什么条件下会消失
+## Core Reasoning Sequence
 
-#### Layer 3: 压力测试
+Use this sequence unless the user explicitly asks for a different shape:
 
-用最挑剔的反方视角去破坏论点。
+1. `Name the real decision`
+   Convert the prompt into a choice, not a topic.
+2. `Extract the unspoken insight`
+   Ask what successful players understand that customers rarely say out loud.
+3. `Map the consensus`
+   Identify the three default assumptions the market appears to rely on.
+4. `Break the consensus`
+   State what would need to be true for each assumption to be wrong.
+5. `Run investor-grade pressure`
+   Write five hard questions a world-class investor would use to attack the idea, then answer only from available evidence.
+6. `Escalate weak answers`
+   If an answer is thin, continue with:
+   - where is the evidence
+   - what is the strongest counterargument
+   - where does that counterargument still break
+   - what missing material would actually settle it
+7. `Prioritize the next evidence`
+   Recommend the next materials in the order that creates the highest information gain per unit of effort.
 
-常见方向：
-- 世界级投资人会先问哪 5 个问题
-- 哪条论点看似最强，边界却最薄
-- 如果要证伪核心判断，最缺什么证据
+This skill should make it hard to hide behind polished narratives. Prefer attack surface over elegant summary.
 
-### 第三步：给执行顺序
+## Default Output Order
 
-输出必须带“先做什么，后做什么”，优先给最省时间的信息增量。
+Use this output skeleton by default:
 
-推荐顺序：
-1. 先看落地页、定价页、Demo、用户评论
-2. 再看访谈、财报、社区抱怨和反方观点
-3. 最后做压力测试、访谈提纲和阶段性判断
+1. `Decision Question`
+2. `Known / Unknown`
+3. `Core Assumptions`
+4. `Unspoken Insight`
+5. `Consensus Attack Surface`
+6. `Investor Stress Test`
+7. `Current Read`
+8. `What To Inspect Next`
+9. `Priority Actions`
 
-## 输出模板
+For light asks, compress the sections. For deeper asks, preserve the same order and expand the evidence notes. Full templates live in [references/output-template.md](references/output-template.md).
 
-```markdown
-# Reverse Research: [对象]
+## Working Rules
 
-## 决策问题
-[这次研究最终想帮用户决定什么]
+- Serve the decision, not the information volume.
+- Do not summarize just because materials exist.
+- Do not state guesses as facts.
+- Distinguish clearly between evidence-backed claims and working hypotheses.
+- Point judgments to evidence sources whenever possible, even if the source type is broad.
+- When materials are sparse, still produce a usable starter framework.
+- When materials are rich, convert them into a decision memo, not a dump.
+- Prefer sharp questions that expose fragility over long checklists that look thorough.
 
-## 当前已知 / 未知
-- 已知：
-- 未知：
+## Follow-up Behavior
 
-## 关键假设
-1. [...]
-2. [...]
-3. [...]
+When the user adds more material:
 
-## Layer 1: 隐性知识
-- 核心问题：
-- 追问：
-- 最值得看的材料：
+- update the judgment instead of restarting from scratch
+- focus on disconfirming evidence before adding more supporting evidence
+- spend follow-up effort on the highest-leverage gap
+- preserve which assumptions have strengthened, weakened, or stayed unresolved
 
-## Layer 2: 共识攻击面
-- 市场共识：
-- 可能被推翻的条件：
-- 反常识机会：
+If the user asks for next steps, recommend the few sources most likely to change the current read, not every plausible source.
 
-## Layer 3: 压力测试
-1. [...]
-2. [...]
-3. [...]
-4. [...]
-5. [...]
+## Reference Map
 
-## 下一步动作
-1. 先补哪类材料
-2. 先回答哪两个问题
-3. 什么证据会改变当前判断
-```
+Load these files only when needed:
 
-## 产出要求
-
-- 先服务决策，不要堆资料
-- 每个判断都尽量写出“证据来自哪里”
-- 明确区分“已有证据”与“待验证猜测”
-- 用户资料很少时，也要给出一个可启动版本，而不是只说“素材不够”
-
-## 参考文件
-
-- 需要按场景挑问题时，看 `references/question-templates.md`
-- 需要快速对照成品长什么样时，看 `references/examples.md`
+- [references/modes.md](references/modes.md)
+  Use for routing, mode-specific depth, switch conditions, and completion rules.
+- [references/question-templates.md](references/question-templates.md)
+  Use when you need prompts by research objective such as competitors, market entry, idea validation, pain discovery, or due diligence.
+- [references/follow-up-prompts.md](references/follow-up-prompts.md)
+  Use when answers are weak and you need strongest-version, falsification, boundary, or investor follow-ups.
+- [references/output-template.md](references/output-template.md)
+  Use when you need the stable compressed or full output format.
+- [references/examples.md](references/examples.md)
+  Use when you want few-shot examples of how to move from vague ask to structured judgment.

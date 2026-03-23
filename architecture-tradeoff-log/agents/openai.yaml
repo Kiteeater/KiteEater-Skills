@@ -1,0 +1,7 @@
+interface:
+  display_name: "Architecture Tradeoff Log"
+  short_description: "Record architecture issues, trade-offs, and decisions."
+  default_prompt: "Use $architecture-tradeoff-log to record this architecture gap, design trade-off, rejected option, and final decision into the project's persistent decision log."
+
+policy:
+  allow_implicit_invocation: true
